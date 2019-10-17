@@ -1,0 +1,9 @@
+get_filename_component(Neural_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+list(APPEND CMAKE_MODULE_PATH ${Neural_CMAKE_DIR})
+
+find_dependency (Armadillo REQUIRED)
+
+if(NOT TARGET Neural::Neural)
+    include("${RMat_CMAKE_DIR}/NeuralTargets.cmake")
+endif()
